@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProÁgua - Linha do Tempo</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    
+ <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+  <link rel="icon" href="img/proagualogo.svg">
+    <style>
+    
+        *{
+            margin: 0;
+            padding: 0;
+        }
+.timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 1000px;
+  position: relative;
+}
+      
+.timeline__content-title {
+  font-weight: normal;
+  font-size: 66px;
+  margin: -10px 0 0 0;
+  transition: 0.4s;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+}
+.timeline__content-desc {
+  margin: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, .7);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  line-height: 25px;
+}
+.timeline:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+  content: "";
+  background: rgba(255, 255, 255, .07);
+}
+@media only screen and (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+}
+.timeline-item {
+  padding: 40px 0;
+  opacity: 0.3;
+  filter: blur(2px);
+  transition: 0.5s;
+  box-sizing: border-box;
+  width: calc(50% - 40px);
+  display: flex;
+  position: relative;
+  transform: translateY(-80px);
+}
+.timeline-item:before {
+  content: attr(data-text);
+  letter-spacing: 3px;
+  width: 100%;
+  position: absolute;
+  color: rgba(255, 255, 255, .8);
+  font-size: 14px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  border-left: 2px solid rgba(255, 255, 255, .5);
+  top: 70%;
+  margin-top: -5px;
+  padding-left: 15px;
+  opacity: 0;
+  right: calc(-100% - 56px);
+}
+        @media(max-width:767px){
+            .timeline-item:before{
+  content: attr(data-text);
+  letter-spacing: 3px;
+  width: 100%;
+  position: absolute;
+  color: rgba(255, 255, 255, .8);
+  font-size: 11px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  border-left: 2px solid rgba(255, 255, 255, .5);
+  top: 70%;
+  margin-top: -5px;
+  padding-left: 15px;
+  opacity: 0;
+  right: calc(-100% - 56px);
+}
+        }
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+}
+.timeline-item:nth-child(even):before {
+  right: auto;
+  text-align: right;
+  left: calc(-100% - 56px);
+  padding-left: 0;
+  border-left: none;
+  border-right: 2px solid rgba(255, 255, 255, .5);
+  padding-right: 15px;
+}
+.timeline-item--active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+.timeline-item--active:before {
+  top: 50%;
+  transition: 0.3s all 0.2s;
+  opacity: 1;
+}
+.timeline-item--active .timeline__content-title {
+  margin: -50px 0 20px 0;
+}
+@media only screen and (max-width: 767px) {
+  .timeline-item {
+    align-self: baseline !important;
+    width: 100%;
+    padding: 0 30px 150px 80px;
+  }
+  .timeline-item:before {
+    left: 10px !important;
+    padding: 0 !important;
+    top: 50px;
+    text-align: center !important;
+    width: 60px;
+    border: none !important;
+  }
+  .timeline-item:last-child {
+    padding-bottom: 40px;
+  }
+}
+.timeline__img {
+  max-width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+}
+.timeline-container {
+  width: 100%;
+  position: relative;
+  padding: 80px 0;
+  transition: 0.3s ease 0s;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.timeline-container:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+ background: rgba(0,0,0,0.6);
+  content: "";
+}
+.timeline-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+.timeline-header__title {
+  color: #fff;
+  font-size: 58px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+.timeline-header__subtitle {
+  color: rgba(255, 255, 255, .5);
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+}
+.demo-footer {
+  padding: 60px 0;
+  text-align: center;
+}
+.demo-footer a {
+  color: #999;
+  display: inline-block;
+  font-family: Cardo;
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-light bg-light  py-3 px-5 box-shadow">
+    	<a href="index.html" class="navbar-brand">
+            <img src="img/proagualogo.svg">
+            
+    	</a>
+    	
+    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"id="navbarSupportedContent">
+        	<ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+        			<a class="nav-link" href="index.html">Home</a>
+        		</li>
+        		<li class="nav-item dropdown">
+        			<a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Galeria</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        				<a class="dropdown-item"href="coleta.html">Coleta</a>
+        				<a class="dropdown-item"href="saneamento.html">Saneamento</a>
+        				<a class="dropdown-item"href="agua.html">Reuso da Água</a>
+        			</div>
+        		</li>
+        		<li class="nav-item">
+        			<a class="nav-link" href="contato.html">Contato</a>
+        		</li>
+        		<li class="nav-item">
+        			<a class="btn btn-outline-primary ml-md-2" href="timeline.html">Linha do Tempo</a>
+        		</li>
+        	</ul>	
+        </div>
+    </nav>
+    
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header__title linhadotempo">LINHA DO TEMPO</h2>
+    <h3 class="timeline-header__subtitle historia">HISTORIA DO SANEAMENTO</h3>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" data-text="RIO DE JANEIRO">
+      <div class="timeline__content"><img class="timeline__img" src="img/antigosaneamento.jpg">
+        <h2 class="timeline__content-title">1561</h2>
+        <p class="timeline__content-desc">O primeiro indício de saneamento no Brasil ocorreu em 1561, quando Estácio de Sá mandou escavar no Rio de Janeiro o primeiro poço para abastecer a cidade.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="RIO DE JANEIRO">
+      <div class="timeline__content"><img class="timeline__img" src="img/brasil.jpg"/>
+        <h2 class="timeline__content-title">1673</h2>
+        <p class="timeline__content-desc">Em  1673,  deu-se  início  do  primeiro aqueduto  do  País,  que  ficou  pronto  em  1723,  transportando  águas  do  rio Carioca  em  direção  ao  Chafariz.  E  no  final  do  ano  de  1890,  ocorreu  a organização  dos  serviços  de  saneamento  passando  para  os  estrangeiros  as concessões  de  trabalho,  principalmente  para  os  mais  sucedidos  que  eram  os ingleses. </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="SÃO PAULO">
+      <div class="timeline__content"><img class="timeline__img" src="img/saopaulo.jpg"/>
+        <h2 class="timeline__content-title">1857</h2>
+        <p class="timeline__content-desc">O  Governo  de  São  Paulo  construiu  o  primeiro  sistema  de abastecimento  de  água  encanada,  entre  1857  e   1877,  após  assinar  contrato com a empresa Achilles Martin D´Éstudens.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="RIO DE JANEIRO">
+      <div class="timeline__content"><img class="timeline__img" src="img/central.jpg"/>
+        <h2 class="timeline__content-title">1876</h2>
+        <p class="timeline__content-desc">Rio  de  Janeiro  1876  onde  se  tornou  pioneiro  na  inauguração  em  nível  mundial de  uma  estação  de  tratamento  de  água  (ETA).  Com  a  péssima  qualidade  dos serviços  prestados  pelas  companhias  estrangeiras,  o  Brasil  estatizou  o  serviço de  saneamento  no  início  do  século  XX.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/1940.jpg"/>
+        <h2 class="timeline__content-title">1940</h2>
+        <p class="timeline__content-desc">Em  1940,  se  iniciou   a  comercialização dos  serviços  de  saneamento.  Surgem  então  as  autarquias  e mecanismos  de financiamento  para  o  abastecimento  de  água,  com   influência  do  Serviço Especial  de  Saúde  Pública  (SESP),  hoje  denominada  Fundação  Nacional  de Saúde (FUNASA).</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/1960.jpg"/>
+        <h2 class="timeline__content-title">1969</h2>
+        <p class="timeline__content-desc">Então  no  ano  de  1969,  com  a  aprovação  do  decreto  949,  adquiriu-se recursos  para  aplicações  no  saneamento  com  a  ajuda  de  financiamentos  no Banco  Nacional  de  Habitação  (BNH)</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/1971.jpg"/>
+        <h2 class="timeline__content-title">1971</h2>
+        <p class="timeline__content-desc"> Em  1971,  foi  instituído  o  Plano  Nacional de  Saneamento  (PLANASA),  onde  teve  seu  objetivo  por  meio  das  tarifas  e financiamentos baseados em recursos retornáveis (RIBEIRO, 2016).</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/2007.png"/>
+        <h2 class="timeline__content-title">2007</h2>
+        <p class="timeline__content-desc">
+          Após  intensa  luta  dos  Municípios  pela  titularidade  dos  serviços  de saneamento,  no  dia  05  de   janeiro  de  2007,  foi  sancionada a Lei  Federal  nº 11.445,  chamada  de  Lei  Nacional  do  Saneamento   Básico  –  LNSB,  que  teve vigência  a  partir  de  22  de fevereiro  do  mesmo ano,  estabelecendo as  diretrizes nacionais para o saneamento básico no Brasil. 
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/2015.jpg"/>
+        <h2 class="timeline__content-title">2015</h2>
+        <p class="timeline__content-desc">Enfim  com  a  aprovação  do  marco  regulatório,  em  complemento  a  Lei  nº 11.445,  os  municípios  passaram  a  se  estruturar  como  po der  co ncedente. Desde  então,  tem  sido  crescente  a  pa rticipa ção de  emp resas  privadas n o  setor de saneamento (AGEA, 2015).</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
