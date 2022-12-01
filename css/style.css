@@ -2,7 +2,44 @@ body {
     padding-top: 75px;
 }
 
+a {
+    color: #35b276;
+    text-decoration: none;
+    background-color: transparent;
+  }
 
+  a:hover {
+    color: #005c41;
+    text-decoration: underline;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 92, 65, 0.5)
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color:rgba(0, 92, 65, 0.7);
+
+  }
+
+.text-primary {
+    color: #35b276 !important;
+  }
+  
+  a.text-primary:hover, a.text-primary:focus {
+    color: #005c41 !important;
+  }
+  
+.btn-primary {
+    background-color: #35b276;
+    border-color: #005c41;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #005c41;
+    border-color: #005c41;
+  }
+  
 .box-shadow {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
                 0 4px 8px 0 rgba(0,0,0,.05);
