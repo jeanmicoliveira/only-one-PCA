@@ -13,6 +13,10 @@ a {
     text-decoration: underline;
   }
 
+.text-info {
+    color: #17b857!important;
+}
+
   .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 92, 65, 0.5)
   }
